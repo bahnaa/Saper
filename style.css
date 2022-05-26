@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3f3f3f;
+}
+
+.container {
+    width: 240px;
+    height: 320px;
+}
+
+.info {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer, .emoji, .bombs-counter {
+    height: inherit;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.emoji {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+}
+
+.emoji-neutral {
+    background-image: url('./images/neutral.png');
+}
+
+.emoji-happy, .emoji-sad {
+    cursor: pointer;
+}
+
+.emoji-happy {
+    background-image: url('./images/happy.png');
+}
+
+.emoji-sad {
+    background-image: url('./images/sad.png');
+}
+
+.fields {
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100%;
+    /* height: calc(100% - 80px); */
+    gap: 1px;
+}
+
+.mine-field {
+    outline: 1px solid white;
+    border-collapse: collapse;
+    background-color: rgb(207, 207, 207);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.mine-field-enabled:hover {
+    background-color: rgb(182, 182, 182);
+    cursor: pointer;
+}
+
+.mine-field.checked {
+    background-color: green;
+}
+
+.mine-field.uncovered {
+    background-image: url('./images/bomb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+@media screen and (min-width: 420px) {
+    .container {
+        height: 400px;
+        width: 320px;
+    }
+    .mine-field, .timer, .bombs-counter {
+        font-size: 1.2rem;
+    }
+    .info {
+        height: 60px
+    }
+    .emoji {
+        background-size: 30px 30px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .container {
+        height: 560px;
+        width: 480px;
+    }
+    .mine-field, .timer, .bombs-counter {
+        font-size: 1.5rem;
+    }
+    .info {
+        height: 80px;
+    }
+    .emoji {
+        background-size: 40px 40px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        height: 720px;
+        width: 640px;
+    }
+    .mine-field, .timer, .bombs-counter {
+        font-size: 2rem;
+    }
+    .emoji {
+        background-size: 50px 50px;
+    }
+}
